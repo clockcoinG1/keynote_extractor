@@ -57,4 +57,12 @@ def analyze_keynote(file_path):
                     with open(slide_path, 'rb') as img_file:
                         img_data = img_file.read()
                         extracted_data['diagrams'].append(img_data)
-
+
+    # Cleanup temporary extraction directory
+    os.rmdir(temp_dir)
+
+    return extracted_data
+
+# Extract and analyze the Keynote file
+keynote_data = analyze_keynote(file_path)
+keynote_data
